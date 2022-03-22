@@ -51,3 +51,6 @@ jobs:
         
       - name: Publish
         run: gsutil -m acl ch -R -u AllUsers:R gs://"$BUCKET"
+        
+      - name: Cache 1
+        run: gsutil setmeta -h "Cache-Control:no-cache, no-store" gs://"$BUCKET"/index.html
