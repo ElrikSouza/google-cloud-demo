@@ -37,7 +37,7 @@ jobs:
           
       - name: vite build
         run:
-          yarn build
+          yarn build --base="https://storage.googleapis.com/cb-frontend/"
           
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.2.0
