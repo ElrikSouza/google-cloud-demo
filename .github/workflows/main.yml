@@ -47,7 +47,7 @@ jobs:
           export_default_credentials: true
           
       - name: Upload
-        run: gsutil -m rsync ./dist gs://"$BUCKET"
+        run: gsutil -m rsync -r ./dist gs://"$BUCKET"
         
       - name: Publish
         run: gsutil -m acl ch -R -u AllUsers:R gs://"$BUCKET"
