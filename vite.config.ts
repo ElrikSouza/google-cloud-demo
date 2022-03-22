@@ -5,4 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "https://storage.googleapis.com/cb-frontend/",
+  server: {
+    origin: "https://storage.googleapis.com/cb-frontend",
+  },
 });
