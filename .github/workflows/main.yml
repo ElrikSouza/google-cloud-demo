@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Google Cloud Storage Build
 
 env:
   BUCKET: cb-frontend
@@ -39,5 +37,9 @@ jobs:
       - name: Upload dist folder to the bucket
         run: gsutil -m rsync -r ./dist gs://"$BUCKET"
 
-      - name: Set the cache control header for the index.html file
+      # Vite already generates hashes for static files to prevent problems with caching
+      - name: Set the cache control header for static assets
+        run: gsutil -m setmeta -h "Cache-Control:public, max-age=1576800" gs://"$BUCKET"/**/*.(css, js, svg)
+
+      - name: Set the cache control header for the index.html file (no-cache, no-store)
         run: gsutil -m setmeta -h "Cache-Control:no-cache, no-store" gs://"$BUCKET"/index.html
