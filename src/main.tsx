@@ -9,7 +9,7 @@ import logo from "./images/logo_dark.png";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={"/cb-frontend/index.html"}>
+    <BrowserRouter>
       Png loading test:
       <img src={logo} alt="image loading not working" />
       <Routes>
