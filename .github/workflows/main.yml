@@ -39,7 +39,7 @@ jobs:
 
       # Vite already generates hashes for static files to prevent problems with caching
       - name: Set the cache control header for static assets
-        run: gsutil -m setmeta -h "Cache-Control:public, max-age=1576800" gs://"$BUCKET"/**/*.{css, js, svg}
+        run: gsutil -m setmeta -h "Cache-Control:public, max-age=1576800" gs://"$BUCKET"/**/*.{js,css,svg,png}
 
       - name: Set the cache control header for the index.html file (no-cache, no-store)
         run: gsutil -m setmeta -h "Cache-Control:no-cache, no-store" gs://"$BUCKET"/index.html
