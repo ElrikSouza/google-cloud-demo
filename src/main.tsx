@@ -8,7 +8,7 @@ import PageTwo from "./page-two";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={"/cb-frontend"}>
+    <BrowserRouter basename={"/cb-frontend/index.html"}>
       teste
       <Routes>
         <Route path="/" element={<App />} />
